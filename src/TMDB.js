@@ -1,3 +1,5 @@
+import React from 'react';
+
 const TMDB = {
   api_key: '<REPLACE_THIS_WITH_TMDB_API_KEY>',
   films: [
