@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 class FilmDetails extends Component {
   render() {
     return (
-      <div>
-        <h1>Here's some details. doing nothing</h1>
+      <div className="film-details">
+        <h1 className="section-title">DETAILS</h1>
       </div>
     )
   }
