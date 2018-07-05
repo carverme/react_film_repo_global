@@ -5,7 +5,6 @@ import FilmListing from './FilmListing';
 import FilmDetails from './FilmDetails';
 import TMDB from './TMDB';
 
-
 class App extends Component {
   render() {
     return (

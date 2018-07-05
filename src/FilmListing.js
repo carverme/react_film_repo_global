@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import FilmRow from './FilmRow'
-
+import FilmRow from './FilmRow';
 
 class FilmListing extends Component {
   render() {
@@ -14,6 +13,5 @@ class FilmListing extends Component {
     )
   }
 }
-
 
 export default FilmListing
