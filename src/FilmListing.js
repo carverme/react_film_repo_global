@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-
+import FilmRow from './FilmRow'
 
 
 class FilmListing extends Component {
   render() {
-    var allFilms = this.props.films.map( (film, i) => <h3>{film.title}</h3>)
+    const safeArray = Array.from(this.props.films);
+    const allFilms = safeArray.map( (film) => <FilmRow film={film} key={film.id}/>)
     return (
       <div className="film-list">
         <h1 className="section-title">FILMS</h1>
