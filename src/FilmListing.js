@@ -18,8 +18,12 @@ class FilmListing extends Component {
 }
 
   render() {
-    const safeArray = Array.from(this.props.films);
-    const allFilms = safeArray.map( (film) => <FilmRow film={film} key={film.id}/>)
+    const safeArray = (this.state.filter === 'all') ? Array.from(this.props.films) : Array.from(this.props.faves);
+    const allFilms = safeArray.map( (film) => <FilmRow film={film}
+                                                       key={film.id}
+                                                       onFaveToggle={() => this.props.onFaveToggle(film)}
+                                                       isFave={(this.props.faves.indexOf(film) > -1) ? true : false}
+                                              />)
     const allClass = (this.state.filter === 'all') ? "film-list-filter is-active" : "film-list-filter"
     const favesClass = (this.state.filter === 'faves') ? "film-list-filter is-active" : "film-list-filter"
 
@@ -33,7 +37,7 @@ class FilmListing extends Component {
             </div>
             <div onClick={() => this.handleFilterClick('faves')} className={favesClass}>
               FAVES
-              <span className="section-count">0</span>
+              <span className="section-count">{this.props.faves.length}</span>
             </div>
           </div>
         {allFilms}
