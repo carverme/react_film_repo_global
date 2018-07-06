@@ -21,6 +21,7 @@ class FilmListing extends Component {
     const safeArray = (this.state.filter === 'all') ? Array.from(this.props.films) : Array.from(this.props.faves);
     const allFilms = safeArray.map( (film) => <FilmRow film={film}
                                                        key={film.id}
+                                                       onDetailsClick={() => this.props.onDetailsClick(film)}
                                                        onFaveToggle={() => this.props.onFaveToggle(film)}
                                                        isFave={(this.props.faves.indexOf(film) > -1) ? true : false}
                                               />)

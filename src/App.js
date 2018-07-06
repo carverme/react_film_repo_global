@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import FilmListing from './FilmListing';
 import FilmDetails from './FilmDetails';
 import TMDB from './TMDB';
-import Fave from './Fave';
 
 class App extends Component {
   constructor(props) {
@@ -15,6 +13,7 @@ class App extends Component {
       current: {}
     }
     this.handleFaveToggle = this.handleFaveToggle.bind(this)
+    this.handleDetailsClick = this.handleDetailsClick.bind(this)
   }
 
 handleFaveToggle(film) {
@@ -43,7 +42,10 @@ handleDetailsClick(film) {
   render() {
     return (
         <div className="film-library">
-          <FilmListing onFaveToggle={this.handleFaveToggle} films={this.state.films} faves={this.state.faves}/>
+          <FilmListing onFaveToggle={this.handleFaveToggle}
+                       films={this.state.films}
+                       faves={this.state.faves}
+                       onDetailsClick={this.handleDetailsClick} />
           <FilmDetails film={this.state.current}/>
         </div>
     );
